@@ -20,14 +20,3 @@ TERMINADO EL SERVICIO FEIGN CLIENT
 ============
 
 2:01:30 -> servidor de cfgs con git
-
--> URL DEL GIT PARA LA CFG DE EUREKA:
-https://github.com/feduto14/microservicios-tutorial.git
-
-Comandos en GITBASH para subir el proyecto a la nueva rama:
-1) Ir a la direccion donde estan las carpetas de los microservicios
-2) git init
-3) git add .
-4) git commit -m"mensaje"
-5) git remote add origin "URL DE GIT"
-6) git push origin master
