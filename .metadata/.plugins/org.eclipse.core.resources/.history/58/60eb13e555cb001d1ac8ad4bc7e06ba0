@@ -1,0 +1,28 @@
+package com.usuario.service.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.usuario.entity.Usuario;
+import com.usuario.repository.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+	
+	private UsuarioRepository repo;
+	
+	public List<Usuario> getAll () {
+		return repo.findAll();
+	}
+	
+	public Usuario getUserById (Integer id) {
+		return repo.findById(id).orElse(null);
+	}
+	
+	public Usuario save (Usuario usuario) {
+		Usuario newUser = repo.save(usuario);
+		return newUser;
+	}
+
+}

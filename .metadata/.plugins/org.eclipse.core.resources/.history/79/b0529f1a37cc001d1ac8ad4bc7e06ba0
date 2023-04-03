@@ -1,0 +1,5 @@
+package ar.com.usuario.models;
+
+public class Moto {
+
+}

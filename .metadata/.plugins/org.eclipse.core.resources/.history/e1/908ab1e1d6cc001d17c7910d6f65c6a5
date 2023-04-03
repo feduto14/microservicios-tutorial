@@ -1,0 +1,5 @@
+package ar.com.usuario.feignclients;
+
+public interface MotoFeignClient {
+
+}

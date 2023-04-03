@@ -1,0 +1,66 @@
+package ar.com.usuario.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import ar.com.usuario.entity.Usuario;
+import ar.com.usuario.feignclients.CarroFeignClient;
+import ar.com.usuario.feignclients.MotoFeignClient;
+import ar.com.usuario.models.Carro;
+import ar.com.usuario.models.Moto;
+import ar.com.usuario.repository.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+	
+	@Autowired
+	private UsuarioRepository repo;
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@Autowired
+	private CarroFeignClient feignClientCarro;
+	
+	@Autowired
+	private MotoFeignClient feignClientMoto;
+	
+	public List<Carro> getCarros (Integer usuarioId) {
+		List<Carro> carros = restTemplate.getForObject("http://localhost:8002/carro/usuario/" + usuarioId, List.class);
+		return carros;
+	}
+	
+	public List<Moto> getMotos (Integer usuarioId) {
+		List<Moto> motos = restTemplate.getForObject("http://localhost:8003/moto/usuario/" + usuarioId, List.class);
+		return motos;
+	}
+	
+	public Carro saveCarro (Integer usuarioId, Carro carro) {
+		carro.setUsuarioId(usuarioId);
+		Carro nuevoCarro = feignClientCarro.save(carro);
+		return nuevoCarro;
+	}
+	
+	public List<Usuario> getAll () {
+		return repo.findAll();
+	}
+	
+	public Usuario getUserById (Integer id) {
+		return repo.findById(id).orElse(null);
+	}
+	
+	public Usuario save (Usuario usuario) {
+		Usuario newUser = repo.save(usuario);
+		return newUser;
+	}
+	
+	public Moto saveMoto (Integer usuarioId, Moto moto) {
+		moto.setUsuarioId(usuarioId);
+		Moto newMoto = feignClientMoto.save(moto);
+		return newMoto;
+	}
+
+}

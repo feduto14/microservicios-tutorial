@@ -1,0 +1,9 @@
+package ar.com.usuario.feignclients;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name = "micro-carro", url = "http://localhost:8002")
+@RequestMapping("/carro")
+public interface CarroFeignClient {
+
+}

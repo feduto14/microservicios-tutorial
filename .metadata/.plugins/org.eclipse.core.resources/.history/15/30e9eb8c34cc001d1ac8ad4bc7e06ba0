@@ -1,0 +1,62 @@
+package ar.com.moto.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import ar.com.moto.entity.Moto;
+import ar.com.moto.service.MotoService;
+
+@RestController
+@RequestMapping("/carro")
+public class MotoController {
+	
+	@Autowired
+	private MotoService service;
+	
+	@GetMapping
+	public ResponseEntity<List<Moto>> listarCarros () {
+		List<Moto> carros = service.getAll();
+		
+		if (carros.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(carros);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Moto> obtenerUsuario (@PathVariable("id") Integer id) {
+		Moto carro = service.getCarroById(id);
+		
+		if (carro == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(carro);
+	}
+	
+	@PostMapping
+	public ResponseEntity<Moto> guardarCarro (@RequestBody Moto carro) {
+		Moto newCarro = service.save(carro);
+		return ResponseEntity.ok(newCarro);
+	}
+	
+	@GetMapping("/usuario/{userId}")
+	public ResponseEntity<List<Moto>> listarCarrosPorUserId (@PathVariable("userId") Integer id) {
+		List<Moto> carros = service.getCarrosByUserId(id);
+		
+		if (carros.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok(carros);
+	}
+	
+	
+
+}

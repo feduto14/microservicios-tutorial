@@ -1,0 +1,11 @@
+
+
+VERSIONES DEL VIDEO:
+SPRING STARTER PARENT 2.5.4
+SPRING CLOUD: 2020.0.3
+
+1) Se crearon varios microservicios y se conectaron mediante RestTemplate.
+
+
+1:20:00
+2) Ahora se van a modificar esas conexiones entre microservicios y se hara con FeignClient

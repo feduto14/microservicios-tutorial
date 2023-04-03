@@ -1,0 +1,5 @@
+package ar.com.usuario.config;
+
+public class RestTemplateConfig {
+
+}
