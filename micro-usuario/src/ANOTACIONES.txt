@@ -4,6 +4,21 @@ VERSIONES DEL VIDEO:
 SPRING STARTER PARENT 2.5.4
 SPRING CLOUD: 2020.0.3
 
+
+
+application.properties -> esto guarda la configuracion de springboot
+
+server.port = 8002
+spring.application.name = micro-carro
+
+
+
+SE CAMBIA POR LAS YAML DE SPRING CLOUD
+
+
+
+
+
 1) Se crearon varios microservicios y se conectaron mediante RestTemplate.
 
 
@@ -31,3 +46,12 @@ Comandos en GITBASH para subir el proyecto a la nueva rama:
 4) git commit -m"mensaje"
 5) git remote add origin "URL DE GIT"
 6) git push origin master
+
+
+para crear los archivos YAML en el proyecto config-service:
+
+1) ir por gitbash a donde esta el proyecto config-service
+2) escribir "touch *servicio*.yaml para todos los microservicios que lo usen. uno para cada uno
+
+
+2:32:31

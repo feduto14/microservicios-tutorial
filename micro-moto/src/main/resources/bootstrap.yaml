@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: micro-moto
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081/
