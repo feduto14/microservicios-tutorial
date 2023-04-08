@@ -14,7 +14,7 @@ spring.application.name = micro-carro
 
 
 SE CAMBIA POR LAS YAML DE SPRING CLOUD
-
+LOS ARCHIVOS YAML DE CONFIGURACION DEL REPO TIENEN QUE SER IGUAL QUE EL NOMBRE DECLARADO EN EL BOOTSTRAP.YAML EN CADA PROYECTO, SI NO NO MATCHEA LOS CAMPOS
 
 
 
@@ -54,4 +54,13 @@ para crear los archivos YAML en el proyecto config-service:
 2) escribir "touch *servicio*.yaml para todos los microservicios que lo usen. uno para cada uno
 
 
-2:32:31
+
+
+2:56:14 -> llegue hasta aquí
+
+
+=============
+
+EN LA CONFIGURACION YAML DE EUREKA DE CONFIG-DATA, SE AGREGA EL EUREKA -> CLIENT -> FETCH-REGISTRY: FALSE PORQUE NO SE REGISTRA COMO SERVICIO, SI NO QUE ES EL SERVICE QUE REGISTRA A LOS DEMAS MICROSERVICIOS
+QUE TENDRAN ESTA ANOTACION EN TRUE.
+
