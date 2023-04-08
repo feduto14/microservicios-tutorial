@@ -101,7 +101,7 @@ public class UsuarioController {
 		return new ResponseEntity("<FAILURE-HANDLER-MESSAGE> El usuario: " + id + " tiene los carros en el taller", HttpStatus.OK);
 	}
 	
-	private ResponseEntity<List<Carro>> fallBackSaveCarro (@PathVariable("usuarioId") Integer id, @RequestBody Carro carro, RuntimeException exception) {
+	private ResponseEntity<Carro> fallBackSaveCarro (@PathVariable("usuarioId") Integer id, @RequestBody Carro carro, RuntimeException exception) {
 		return new ResponseEntity("<FAILURE-HANDLER-MESSAGE> El usuario: " + id + " no puede comprar mas carros", HttpStatus.OK);
 	}
 	
@@ -109,11 +109,11 @@ public class UsuarioController {
 		return new ResponseEntity("<FAILURE-HANDLER-MESSAGE> El usuario: " + id + " tiene las motos en el taller", HttpStatus.OK);
 	}
 	
-	private ResponseEntity<List<Moto>> fallBackSaveMoto (@PathVariable("usuarioId") Integer id, @RequestBody Carro carro, RuntimeException exception) {
+	private ResponseEntity<Moto> fallBackSaveMoto (@PathVariable("usuarioId") Integer id, @RequestBody Carro carro, RuntimeException exception) {
 		return new ResponseEntity("<FAILURE-HANDLER-MESSAGE> El usuario: " + id + " no puede comprar mas motos", HttpStatus.OK);
 	}
 	
-	private ResponseEntity<List<Carro>> fallBackGetTodos (@PathVariable("usuarioId") Integer id, RuntimeException exception) {
+	private ResponseEntity<Map<String, Object>> fallBackGetTodos (@PathVariable("usuarioId") Integer id, RuntimeException exception) {
 		return new ResponseEntity("<FAILURE-HANDLER-MESSAGE> El usuario: " + id + " tiene los vehiculos en el taller", HttpStatus.OK);
 	}
 

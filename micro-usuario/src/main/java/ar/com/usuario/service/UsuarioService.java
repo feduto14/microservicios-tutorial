@@ -31,12 +31,12 @@ public class UsuarioService {
 	private MotoFeignClient feignClientMoto;
 	
 	public List<Carro> getCarros (Integer usuarioId) {
-		List<Carro> carros = restTemplate.getForObject("http://localhost:8002/carro/usuario/" + usuarioId, List.class);
+		List<Carro> carros = restTemplate.getForObject("http://micro-carro/carro/usuario/" + usuarioId, List.class);
 		return carros;
 	}
 	
 	public List<Moto> getMotos (Integer usuarioId) {
-		List<Moto> motos = restTemplate.getForObject("http://localhost:8003/moto/usuario/" + usuarioId, List.class);
+		List<Moto> motos = restTemplate.getForObject("http://micro-moto/moto/usuario/" + usuarioId, List.class);
 		return motos;
 	}
 	
@@ -84,7 +84,7 @@ public class UsuarioService {
 			
 			List<Moto> motos = feignClientMoto.getMotos(usuarioId);
 			if (motos.isEmpty()) {
-				resultado.put("Motos", "El usuario no tiene motosS!");
+				resultado.put("Motos", "El usuario no tiene motos!");
 			} else {
 				resultado.put("Motos", motos);
 			}
