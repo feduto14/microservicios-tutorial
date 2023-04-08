@@ -1,8 +1,0 @@
-package ar.com.usuario.feignclients;
-
-import org.springframework.cloud.openfeign.FeignClient;
-
-@FeignClient(name = "micro-moto", url = "http://localhost:8002/carro")
-public interface MotoFeignClient {
-
-}

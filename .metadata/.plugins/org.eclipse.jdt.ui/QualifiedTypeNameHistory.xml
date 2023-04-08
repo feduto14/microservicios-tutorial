@@ -40,4 +40,5 @@
     <fullyQualifiedTypeName name="ar.com.usuario.feignclients.MotoFeignClient"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.server.EnableEurekaServer"/>
 </qualifiedTypeNameHistroy>
