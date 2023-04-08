@@ -109,7 +109,7 @@ public class UsuarioController {
 		return new ResponseEntity("<FAILURE-HANDLER-MESSAGE> El usuario: " + id + " tiene las motos en el taller", HttpStatus.OK);
 	}
 	
-	private ResponseEntity<Moto> fallBackSaveMoto (@PathVariable("usuarioId") Integer id, @RequestBody Carro carro, RuntimeException exception) {
+	private ResponseEntity<Moto> fallBackSaveMoto (@PathVariable("usuarioId") Integer id, @RequestBody Moto carro, RuntimeException exception) {
 		return new ResponseEntity("<FAILURE-HANDLER-MESSAGE> El usuario: " + id + " no puede comprar mas motos", HttpStatus.OK);
 	}
 	
