@@ -23,8 +23,8 @@ spring:
         - id: micro-carro
           uri: lb://micro-carro
           predicates:
-            - path=/carro/**
+            - Path=/carro/**
         - id: micro-moto
           uri: lb://micro-moto
           predicates:
-            - path=/moto/**
+            - Path=/moto/**
